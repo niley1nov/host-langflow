@@ -1,20 +1,23 @@
-app = "host-langflow-mg24tw"
-primary_region = "bom"
+# fly.toml app configuration file generated for host-langflow-mg24tw on 2025-10-20T04:57:11Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'host-langflow-mg24tw'
+primary_region = 'ams'
+
+[build]
 
 [http_service]
   internal_port = 7860
   force_https = true
-  auto_stop_machines = false
+  auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 1
-  processes = ["app"]
-
-  [http_service.concurrency]
-    type = "connections"
-    soft_limit = 50
-    hard_limit = 100
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-  memory = "2048mb"
-  cpu_kind = "shared"
+  memory = '2048mb'
+  cpu_kind = 'shared'
   cpus = 2
+  memory_mb = 2048
