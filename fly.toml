@@ -1,9 +1,6 @@
 app = "host-langflow-mg24tw"
 primary_region = "bom"
 
-# If you're pushing a prebuilt image, you can omit [build].
-# [build]
-
 [http_service]
   internal_port = 7860
   force_https = true
@@ -17,17 +14,7 @@ primary_region = "bom"
     soft_limit = 50
     hard_limit = 100
 
-# Health checks (simple HTTP on "/")
-[checks]
-  [checks.http]
-    port = 7860
-    type = "http"
-    interval = "10s"
-    timeout = "3s"
-    method = "get"
-    path = "/"
-    grace_period = "90s"
-
 [[vm]]
-  size = "shared-cpu-2x"
   memory = "2048mb"
+  cpu_kind = "shared"
+  cpus = 2
